@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t sismics/postgresql .
+docker build -t sismics/postgresql:9.6 .
