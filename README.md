@@ -13,8 +13,8 @@ docker volume create --name=postgresql_data
 - Start the PostgreSQL server:
 
 ```
-docker-compose service create
-docker-compose service start
+docker-compose create
+docker-compose start
 ```
 
 - Connect to your DB and **change the default password**
