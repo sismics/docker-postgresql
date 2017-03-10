@@ -1,0 +1,18 @@
+version: '2'
+services:
+  postgresql:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: sismics/postgresql:9.6
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresql_data:/data
+    container_name: postgresql
+    network_mode: bridge
+
+volumes:
+  postgresql_data:
+    external: true
