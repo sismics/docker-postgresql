@@ -12,9 +12,9 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install PostgreSQL
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" > /etc/apt/sources.list.d/pgdg.list
-RUN apt-get update
-RUN apt-get -y -q install python-software-properties software-properties-common postgresql-9.6 postgresql-client-9.6 \
-    postgresql-contrib-9.6 postgresql-9.6-postgis-2.3
+RUN apt-get update && apt-get -y -q install python-software-properties software-properties-common postgresql-9.6 postgresql-client-9.6 \
+    postgresql-contrib-9.6 postgresql-9.6-postgis-2.3 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create a superuser admin/docker and set the default encoding to UTF-8
 COPY opt /opt
